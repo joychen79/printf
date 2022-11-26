@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jingchen <jingchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 17:51:27 by jingchen          #+#    #+#             */
-/*   Updated: 2022/11/26 18:11:04 by jingchen         ###   ########.fr       */
+/*   Created: 2022/08/18 14:00:22 by jingchen          #+#    #+#             */
+/*   Updated: 2022/11/26 20:02:55 by jingchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,30 @@
 //#include<unistd.h>
 //#include<stdio.h>
 
-static int	ft_nbrsize(int n)
+int	ft_putptr(unsigned long n)
 {
-	int	size;
+	static int	count;
 
-	size = 0;
-	if (n <= 0)
-	size ++;
-	while (n != 0)
+	count = 2;
+	if (n >= 16)
 	{
-		n /= 10;
-		size ++;
-	}
-	return (size);
-}
-
-int	ft_putnbr(long int n)
-{
-	if (n < 0)
-	{
-		n *= -1;
-		ft_putchar('-');
-	}
-	if (n > 9)
-	{
-		ft_putnbr((n / 10));
-		ft_putchar((n % 10) + '0');
+		ft_putptr(n / 16);
+		ft_putchar("0123456789abcdef"[n % 16]);
+		count++;
 	}
 	else
 	{
-		ft_putchar(n + '0');
+		ft_putchar("0123456789abcdef"[n % 16]);
+		count++;
 	}
-	return (ft_nbrsize (n));
+	return (count);
 }
 
-/*int main()
+/*int	main ()
 {
-	int i = -2147483648;
-	int n = -122;
-	int count;
-	 count = ft_putnbr(i);
-	printf("\n%d", count);
-	return 0;
+	unsigned long i = 32055888044554444;
+	//ft_putptr(i);
+	int count = ft_putptr(i);
+	printf("\n%d\n", count);
+	return (0);
 }*/

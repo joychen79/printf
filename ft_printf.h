@@ -6,11 +6,13 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int		ft_printf(char const *, ...);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	ft_putnbr(int n);
-void	ft_putunbr(unsigned int n);// ft_itoa
-void	ft_dirmem(char *str); // non-printable
+int	ft_printf(char const *format, ...);
+int	ft_putchar(int c);
+int	ft_putstr(char *s);
+int	ft_putnbr(long int n);
+int	ft_putunbr(unsigned int n);
+int	ft_putptr(unsigned long n);
+int	ft_puthexupper(unsigned long n);
+int	ft_puthexlower(unsigned long n)
 
 #endif

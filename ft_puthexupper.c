@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_puthexupper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jingchen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jingchen <jingchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 14:00:22 by jingchen          #+#    #+#             */
-/*   Updated: 2022/08/18 20:04:20 by jingchen         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:08:01 by jingchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include "ft_printf.h"
+//#include<unistd.h>
+//#include<stdio.h>
 
-void	ft_putstr_non_printable(char *str)
+int	ft_puthexupper(unsigned long n)
 {
-	int	i;
+	static int	count;
 
-	i = 0;
-	while (str[i] != '\0')
+	count = 0;
+	if (n >= 16)
 	{
-		if (str[i] >= 32 && str[i] <= 126)
-		{
-			write (1, &str[i], 1);
-		}
-		else
-		{
-			write (1, "\\", 1);
-			write (1, &"0123456789abcdef"[(unsigned char) str[i] / 16], 1);
-			write (1, &"0123456789abcdef"[(unsigned char) str[i] % 16], 1);
-		}
-	i++;
+		ft_puthexupper(n / 16);
+		ft_putchar("0123456789ABCDEF"[n % 16]);
+		count++;
 	}
+	else
+	{
+		ft_putchar("0123456789ABCDEF"[n % 16]);
+		count++;
+	}
+	return (count);
 }
 
 /*int	main ()
 {
-	char c[] = "Coucou\ntu vas ñ ¡ bien ?";
-
-	ft_putstr_non_printable(c);
+	unsigned long i = 32055888044554444;
+	int count = ft_puthexupper(i);
+	printf("\n%d\n", count);
 	return (0);
 }*/
