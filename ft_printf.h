@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jingchen <jingchen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 17:27:39 by jingchen          #+#    #+#             */
+/*   Updated: 2022/11/29 17:29:53 by jingchen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdlib.h>
 # include <stdio.h>
@@ -13,6 +25,6 @@ int	ft_putnbr(long int n);
 int	ft_putunbr(unsigned int n);
 int	ft_putptr(unsigned long n);
 int	ft_puthexupper(unsigned long n);
-int	ft_puthexlower(unsigned long n)
+int	ft_puthexlower(unsigned long n);
 
 #endif
