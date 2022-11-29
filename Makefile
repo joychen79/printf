@@ -6,7 +6,7 @@
 #    By: jingchen <jingchen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 17:30:40 by jingchen          #+#    #+#              #
-#    Updated: 2022/11/29 17:40:44 by jingchen         ###   ########.fr        #
+#    Updated: 2022/11/29 18:03:45 by jingchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,25 @@ SRCS	=	ft_printf.c\
 			ft_putstr.c\
 			ft_putunbr.c
 
-OBJS	= $(SRCS:.=.o)
+OBJS	= $(SRCS:.c=.o)
 
 CC	=	gcc
-RM	=	rm -f
+RM	=	rm -rf
 CFLAGS	=	-Wall -Wextra -Werror
 
 NAME	=	libftprintf.a
+
+all:	$(NAME)
+
+$(NAME):	$(OBJS)
+			ar rcs $(NAME) $(OBJS)
+
+clean:	
+		$(RM) $(OBJS)
+
+fclean:	clean
+		$(RM) $(NAME)
+
+re:	fclean	all
+
+.PHONY:	all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: jingchen <jingchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 14:00:22 by jingchen          #+#    #+#             */
-/*   Updated: 2022/11/26 20:09:49 by jingchen         ###   ########.fr       */
+/*   Updated: 2022/11/29 18:45:49 by jingchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 //#include<unistd.h>
 //#include<stdio.h>
 
-int	ft_puthexlower(unsigned long n)
+int	ft_puthexlower(unsigned int n)
 {
 	static int	count;
 
